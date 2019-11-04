@@ -37,15 +37,19 @@ public class Player_Move : MonoBehaviour
             FlipPlayer();
         }
         //PHYSICS
-        SerializePrivateVariables void OnTriggerEnter2D(Collider2D other)
+
+        void OnTriggerEnter2D(Collider2D other)
         {
-            if (other.gameObject.CompareTag("Apple"))
+            if (other.gameObject.CompareTag("Pickapple"))
             {
-                Destroy
+                Destroy(other.gameObject);
             }
         }
+    {
+        
+    }
 
-        gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(moveX * playerSpeed, gameObject.GetComponent<Rigidbody2D>().velocity.y);
+    gameObject.GetComponent<Rigidbody2D>().velocity = new Vector2(moveX * playerSpeed, gameObject.GetComponent<Rigidbody2D>().velocity.y);
     }
 
     void Jump()
