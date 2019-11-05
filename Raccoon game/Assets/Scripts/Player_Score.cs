@@ -2,17 +2,22 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class Player_Score : MonoBehaviour
 {
 
     public float timeLeft = 120;
     public int playerScore = 0;
+    public GameObject timeLeftUI;
+    public GameObject playerScoreUI;
    
     void Update()
     {
         Debug.Log(playerScore);
-        timeLeft -= Time.deltaTime;    
+        timeLeft -= Time.deltaTime;
+        timeLeftUI.gameObject.GetComponent<Text>().text = ("Time Left: " + (int)timeLeft);
+        playerScoreUI.gameObject.GetComponent<Text>().text = ("Score: " + playerScore);
         if (timeLeft <0.1f)
         {
             SceneManager.LoadScene("SampleScene");
@@ -21,8 +26,18 @@ public class Player_Score : MonoBehaviour
 
     void OnTriggerEnter2D (Collider2D trig)
     {
-        CountScore();
-    }
+        if (trig.gameObject.name == "LevelCP")
+        {
+            CountScore();
+        }
+        if (trig.gameObject.name == "Food")
+        {
+            playerScore += 10;
+            Destroy(trig.gameObject);
+        }
+
+
+    } 
 
     void CountScore()
     {
