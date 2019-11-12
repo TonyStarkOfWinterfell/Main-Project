@@ -6,9 +6,9 @@ public class Player_Move : MonoBehaviour
 {
 
 
-    public int playerSpeed = 10;
+    public int playerSpeed = 4;
     public bool facingRight = true;
-    public int playerJumpPower = 1250;
+    public int playerJumpPower = 225;
     public float moveX;
 
 
