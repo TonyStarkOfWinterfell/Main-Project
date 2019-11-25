@@ -11,12 +11,14 @@ public class Player_Move : MonoBehaviour
     public int playerJumpPower = 225;
     public float moveX;
     public bool IsGrounded;
+    public Animator animator;
 
 
     // Update is called once per frame
     void Update()
     {
         PlayerMove();
+        animator.SetFloat("Speed", Mathf.Abs(moveX));
     }
 
     void PlayerMove()
@@ -32,10 +34,14 @@ public class Player_Move : MonoBehaviour
         if (moveX < 0.0f && facingRight == false)
         {
             FlipPlayer();
+            
         }
         else if (moveX > 0.0f && facingRight == true)
         {
             FlipPlayer();
+            
+
+
         }
         //PHYSICS
 
@@ -58,6 +64,7 @@ public class Player_Move : MonoBehaviour
         //JUMPING CODE
         GetComponent<Rigidbody2D>().AddForce(Vector2.up * playerJumpPower);
         IsGrounded = false;
+        animator.SetBool("IsJumping", true);
     }
 
     void FlipPlayer()
@@ -74,6 +81,7 @@ public class Player_Move : MonoBehaviour
         if (col.gameObject.tag == "ground")
         {
             IsGrounded = true;
+            animator.SetBool("IsJumping", false);
         }
     }
 
