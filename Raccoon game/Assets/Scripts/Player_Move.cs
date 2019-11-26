@@ -14,7 +14,7 @@ public class Player_Move : MonoBehaviour
     public Animator animator;
 
 
-    // Update is called once per frame
+   
     void Update()
     {
         PlayerMove();
@@ -29,22 +29,38 @@ public class Player_Move : MonoBehaviour
         {
             Jump();
         }
-        //ANIMATION
+
+
+
+
+        if (IsGrounded == true)
+        {
+            animator.SetBool("IsJumping", false);
+        }
+        else
+        {
+            animator.SetBool("IsJumping", true);
+        }    
+
+
+
+
+
+
         //PLAYER DIRECTION
         if (moveX < 0.0f && facingRight == false)
         {
-            FlipPlayer();
-            
+            FlipPlayer();            
         }
         else if (moveX > 0.0f && facingRight == true)
         {
-            FlipPlayer();
-            
-
-
+            FlipPlayer();       
         }
-        //PHYSICS
-
+        
+        
+        
+        
+        //COLLECTABLES
         void OnTriggerEnter2D(Collider2D other)
         {
             if (other.gameObject.CompareTag("Pickapple"))
@@ -60,12 +76,14 @@ public class Player_Move : MonoBehaviour
     }
 
     void Jump()
-    {
-        //JUMPING CODE
+    {  
+        animator.SetTrigger("TakeOff");      
         GetComponent<Rigidbody2D>().AddForce(Vector2.up * playerJumpPower);
         IsGrounded = false;
-        animator.SetBool("IsJumping", true);
+          
     }
+
+
 
     void FlipPlayer()
     {
@@ -75,13 +93,14 @@ public class Player_Move : MonoBehaviour
         transform.localScale = localScale;
     }
 
+
+     //PLAYER HITS FLOOR
      void OnCollisionEnter2D(Collision2D col)
     {
-        Debug.Log("Player has collided with " + col.collider.name);
+        //Debug.Log("Player has collided with " + col.collider.name);
         if (col.gameObject.tag == "ground")
         {
-            IsGrounded = true;
-            animator.SetBool("IsJumping", false);
+            IsGrounded = true;            
         }
     }
 
