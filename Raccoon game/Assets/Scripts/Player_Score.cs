@@ -28,9 +28,9 @@ public class Player_Score : MonoBehaviour
     {
         if (trig.gameObject.name == "LevelCP")
         {
-            CountScore();
+            CountScore();            
         }
-        if (trig.gameObject.name == "Food")
+        if (trig.gameObject.name == "Food (1)")
         {
             playerScore += 10;
             Destroy(trig.gameObject);
@@ -42,7 +42,8 @@ public class Player_Score : MonoBehaviour
     void CountScore()
     {
         playerScore = playerScore + (int)(timeLeft * 10);
-        Debug.Log(playerScore);
+        Debug.Log(playerScore);        
     }
+
 
 }
