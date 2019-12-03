@@ -30,7 +30,7 @@ public class Player_Score : MonoBehaviour
         {
             CountScore();            
         }
-        if (trig.gameObject.name == "Food (1)")
+        if (trig.gameObject.tag == "Pickapple")
         {
             playerScore += 10;
             Destroy(trig.gameObject);
@@ -41,7 +41,7 @@ public class Player_Score : MonoBehaviour
 
     void CountScore()
     {
-        playerScore = playerScore + (int)(timeLeft * 10);
+        playerScore = playerScore + (int)(timeLeft * 2);
         Debug.Log(playerScore);        
     }
 
