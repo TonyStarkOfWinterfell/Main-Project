@@ -4,6 +4,9 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
+
+
+
 public class Player_Score : MonoBehaviour
 {
 
@@ -11,10 +14,10 @@ public class Player_Score : MonoBehaviour
     public int playerScore = 0;
     public GameObject timeLeftUI;
     public GameObject playerScoreUI;
-   
+    public string ftag;
+    
     void Update()
-    {
-        Debug.Log(playerScore);
+    {        
         timeLeft -= Time.deltaTime;
         timeLeftUI.gameObject.GetComponent<Text>().text = ("Time Left: " + (int)timeLeft);
         playerScoreUI.gameObject.GetComponent<Text>().text = ("Score: " + playerScore);
@@ -28,22 +31,47 @@ public class Player_Score : MonoBehaviour
     {
         if (trig.gameObject.name == "LevelCP")
         {
-            CountScore();            
+            //CountScore();            
         }
-        if (trig.gameObject.tag == "Pickapple")
+        
+        
+        if (trig.gameObject.name == "Food")
         {
+            ftag = trig.gameObject.tag;            
             playerScore += 10;
+            Debug.Log(ftag);
+
+
+            //go = GameObject.FindGameObjectsWithTag(ftag);
+            //switch (ftag)
+            //{
+            //    case "F1":
+            //        for (var i = 0; i < ftag.Length; i++)
+            //        {
+             //           Destroy(ftag[i]);
+             //       }
+                    //Destroy(GameObject.FindGameObjectsWithTag(ftag));                    
+             //       break;
+
+                
+
+             //   default:
+             //       break;
+            }
             Destroy(trig.gameObject);
         }
 
 
     } 
 
-    void CountScore()
-    {
-        playerScore = playerScore + (int)(timeLeft * 2);
-        Debug.Log(playerScore);        
-    }
 
 
-}
+
+
+
+   // void CountScore()
+   // {
+    //    playerScore = playerScore + (int)(timeLeft * 2);
+    //    Debug.Log(playerScore);        
+   // }    
+//}
