@@ -32,12 +32,19 @@ public class Audio : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D trig)
     {
-        if (trig.gameObject.tag == "Pickapple")
+        if (trig.gameObject.name == "Food")
         {            
             AudioSource audio = GetComponent<AudioSource>();
             audio.PlayOneShot(AppleClip);
         }
-    }
+
+        if (trig.gameObject.tag == "Enemy")
+        {
+            AudioSource audio = GetComponent<AudioSource>();
+            Background.Stop();
+            audio.PlayOneShot(DeathClip);
+        }
+    }    
 
     public void PlayBackground()
     {

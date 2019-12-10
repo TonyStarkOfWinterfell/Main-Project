@@ -6,6 +6,11 @@ using UnityEngine.SceneManagement;
 public class Player_Health : MonoBehaviour
 {
 
+    private void Start()
+    {
+          
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -15,8 +20,25 @@ public class Player_Health : MonoBehaviour
         }
     }
 
+    void OnTriggerEnter2D(Collider2D trig)
+    {
+        if (trig.gameObject.tag == "Enemy")
+        {
+            //Destroy(GameObject.FindWithTag("Player"));
+            Die();
+        }
+    }
+
+
+
     void Die()
     {
-        SceneManager.LoadScene("SampleScene");
+        StartCoroutine(Test());
+    }
+
+    IEnumerator Test()
+    {
+        yield return new WaitForSeconds(2);
+        SceneManager.LoadScene("TitleScreen");
     }
 }

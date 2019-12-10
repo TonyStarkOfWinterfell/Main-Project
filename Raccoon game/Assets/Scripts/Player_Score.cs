@@ -15,63 +15,111 @@ public class Player_Score : MonoBehaviour
     public GameObject timeLeftUI;
     public GameObject playerScoreUI;
     public string ftag;
-    
+    public GameObject[] go;
+
     void Update()
-    {        
+    {
         timeLeft -= Time.deltaTime;
         timeLeftUI.gameObject.GetComponent<Text>().text = ("Time Left: " + (int)timeLeft);
         playerScoreUI.gameObject.GetComponent<Text>().text = ("Score: " + playerScore);
-        if (timeLeft <0.1f)
+        if (timeLeft < 0.1f)
         {
             SceneManager.LoadScene("SampleScene");
         }
     }
 
-    void OnTriggerEnter2D (Collider2D trig)
+    void OnTriggerEnter2D(Collider2D trig)
     {
         if (trig.gameObject.name == "LevelCP")
         {
-            //CountScore();            
+            CountScore();
         }
-        
-        
+
+
+
+
+
+
+
         if (trig.gameObject.name == "Food")
         {
-            ftag = trig.gameObject.tag;            
-            playerScore += 10;
-            Debug.Log(ftag);
+            ftag = trig.gameObject.tag;
+            playerScore += 10;           
 
 
-            //go = GameObject.FindGameObjectsWithTag(ftag);
-            //switch (ftag)
-            //{
-            //    case "F1":
-            //        for (var i = 0; i < ftag.Length; i++)
-            //        {
-             //           Destroy(ftag[i]);
-             //       }
-                    //Destroy(GameObject.FindGameObjectsWithTag(ftag));                    
-             //       break;
+            go = GameObject.FindGameObjectsWithTag(ftag);
+            switch (ftag)
+            {
+                case "F1":
+                    for (var i = 0; i < go.Length; i++)
+                    {
+                        Destroy(go[i]);
+                    }
+                    
+                    break;
 
-                
+                case "F2":
+                    for (var i = 0; i < go.Length; i++)
+                    {
+                        Destroy(go[i]);
+                    }
 
-             //   default:
-             //       break;
-            }
-            Destroy(trig.gameObject);
+                    break;
+
+                case "F3":
+                    for (var i = 0; i < go.Length; i++)
+                    {
+                        Destroy(go[i]);
+                    }
+
+                    break;
+
+                case "F4":
+                    for (var i = 0; i < go.Length; i++)
+                    {
+                        Destroy(go[i]);
+                    }
+
+                    break;
+
+                case "F5":
+                    for (var i = 0; i < go.Length; i++)
+                    {
+                        Destroy(go[i]);
+                    }
+
+                    break;
+
+                case "F6":
+                    for (var i = 0; i < go.Length; i++)
+                    {
+                        Destroy(go[i]);
+                    }
+
+                    break;
+
+                case "F7":
+                    for (var i = 0; i < go.Length; i++)
+                    {
+                        Destroy(go[i]);
+                    }
+
+                    break;
+
+
+
+                default:
+                    break;
+            }            
         }
+                                    
 
 
-    } 
+        void CountScore()
+        {
+            playerScore = playerScore + (int)(timeLeft * 2);
+            Debug.Log(playerScore);
+        }
+    }
 
-
-
-
-
-
-   // void CountScore()
-   // {
-    //    playerScore = playerScore + (int)(timeLeft * 2);
-    //    Debug.Log(playerScore);        
-   // }    
-//}
+}

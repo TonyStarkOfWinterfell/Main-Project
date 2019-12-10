@@ -13,6 +13,7 @@ TagManager:
   - F5
   - F6
   - F7
+  - Enemy
   layers:
   - Default
   - TransparentFX
