@@ -25,7 +25,7 @@ public class Player_Health : MonoBehaviour
         if (trig.gameObject.tag == "Enemy")
         {
             //Destroy(GameObject.FindWithTag("Player"));
-            Die();
+            //Die();
         }
     }
 
