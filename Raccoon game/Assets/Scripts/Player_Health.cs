@@ -23,9 +23,8 @@ public class Player_Health : MonoBehaviour
     void OnTriggerEnter2D(Collider2D trig)
     {
         if (trig.gameObject.tag == "Enemy")
-        {
-            //Destroy(GameObject.FindWithTag("Player"));
-            //Die();
+        {            
+            Die();
         }
     }
 

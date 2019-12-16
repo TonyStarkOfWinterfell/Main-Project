@@ -9,8 +9,10 @@ using UnityEngine.UI;
 
 public class Player_Score : MonoBehaviour
 {
+    private int Pick = 0;
+    private int Drop = 0;
 
-    public float timeLeft = 120;
+    public float timeLeft = 40;
     public int playerScore = 0;
     public GameObject timeLeftUI;
     public GameObject playerScoreUI;
@@ -20,31 +22,26 @@ public class Player_Score : MonoBehaviour
     void Update()
     {
         timeLeft -= Time.deltaTime;
-        timeLeftUI.gameObject.GetComponent<Text>().text = ("Time Left: " + (int)timeLeft);
         playerScoreUI.gameObject.GetComponent<Text>().text = ("Score: " + playerScore);
-        if (timeLeft < 0.1f)
+        if (Drop >= 7)
         {
-            SceneManager.LoadScene("SampleScene");
+            SceneManager.LoadScene("Ending");
         }
     }
 
     void OnTriggerEnter2D(Collider2D trig)
     {
-        if (trig.gameObject.name == "LevelCP")
+        if (trig.gameObject.tag == "Finish")
         {
             CountScore();
         }
 
 
-
-
-
-
-
         if (trig.gameObject.name == "Food")
         {
             ftag = trig.gameObject.tag;
-            playerScore += 10;           
+            playerScore += 100;
+            Pick += 1;
 
 
             go = GameObject.FindGameObjectsWithTag(ftag);
@@ -115,10 +112,17 @@ public class Player_Score : MonoBehaviour
                                     
 
 
+
+
+
         void CountScore()
         {
-            playerScore = playerScore + (int)(timeLeft * 2);
-            Debug.Log(playerScore);
+            if (Pick > 0)
+            {
+                playerScore = playerScore + (int)(timeLeft * Pick * 5);
+            }            
+            Drop = Drop + Pick;
+            Pick = 0;            
         }
     }
 
