@@ -21,7 +21,7 @@ public class DestroyB : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (transform.position.x > platformDestructB.transform.position.x)
+        if (transform.position.x > platformDestructB.transform.position.x && transform.position.y < 18)
         {
             platformSpawnerRight.transform.position = new Vector3(platformSpawnerRight.transform.position.x - distanceBet, platformSpawnerRight.transform.position.y, 0);
             Destroy(gameObject);

@@ -16,6 +16,7 @@ public class GenerationB : MonoBehaviour
     {
         if (transform.position.x > generationPointB.position.x)
         {
+            thePlatformB = thePlatformB;
             transform.position = new Vector3(transform.position.x - distanceBetweenB, transform.position.y, transform.position.z);
             Instantiate(thePlatformB, transform.position, transform.rotation);
         }
