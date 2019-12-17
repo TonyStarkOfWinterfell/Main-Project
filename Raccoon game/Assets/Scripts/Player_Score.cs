@@ -28,11 +28,16 @@ public class Player_Score : MonoBehaviour
     public Trail Trail;
 
 
+    public Animator transition;
+    public string scenename;
+
+
     private void Awake()
     {        
         offscreen = FoodTrail.transform.position;
         Trail = GameObject.FindObjectOfType<Trail>();
     }
+
 
 
     void Update()
@@ -56,13 +61,13 @@ public class Player_Score : MonoBehaviour
 
 
 
-        if(FoodTrail.transform.position.x < character.transform.position.x - 0.5f)
+        if(FoodTrail.transform.position.x < character.transform.position.x - 0.8f)
         {
-            FoodTrail.transform.position =  new Vector3( character.transform.position.x - 0.5f, FoodTrail.transform.position.y, FoodTrail.transform.position.z);
+            FoodTrail.transform.position =  new Vector3( character.transform.position.x - 0.8f, FoodTrail.transform.position.y, FoodTrail.transform.position.z);
         }
-        else if (FoodTrail.transform.position.x > character.transform.position.x + 0.5f)
+        else if (FoodTrail.transform.position.x > character.transform.position.x + 0.8f)
         {
-            FoodTrail.transform.position = new Vector3(character.transform.position.x + 0.5f, FoodTrail.transform.position.y, FoodTrail.transform.position.z);
+            FoodTrail.transform.position = new Vector3(character.transform.position.x + 0.8f, FoodTrail.transform.position.y, FoodTrail.transform.position.z);
         }
 
 
@@ -71,7 +76,7 @@ public class Player_Score : MonoBehaviour
 
         if (FoodTrail.transform.position.y != character.transform.position.y && FD == 1)
         {
-            FoodTrail.transform.position = Vector2.MoveTowards(FoodTrail.transform.position, character.transform.position, Time.deltaTime * 4);
+            FoodTrail.transform.position = Vector2.MoveTowards(FoodTrail.transform.position, character.transform.position, Time.deltaTime * 3.5f);
         }
 
 
@@ -80,8 +85,19 @@ public class Player_Score : MonoBehaviour
 
         if (Drop >= 7)
         {
-            SceneManager.LoadScene("Ending");
+            StartCoroutine(LoadScene());
+            
         }
+
+
+        IEnumerator LoadScene()
+        {
+            transition.SetBool("endd",true);
+            yield return new WaitForSeconds(2.5f);
+            SceneManager.LoadScene(scenename);
+            
+        }
+
     }
 
 
@@ -93,6 +109,7 @@ public class Player_Score : MonoBehaviour
         {
             FD = 0;
             CountScore();
+
         }
 
 
@@ -101,6 +118,7 @@ public class Player_Score : MonoBehaviour
             ftag = trig.gameObject.tag;
             playerScore += 100;
             Pick += 1;
+            
 
 
             go = GameObject.FindGameObjectsWithTag(ftag);
@@ -168,9 +186,13 @@ public class Player_Score : MonoBehaviour
                     break;
             }            
         }
-                                    
 
 
+
+
+
+
+        
 
 
 

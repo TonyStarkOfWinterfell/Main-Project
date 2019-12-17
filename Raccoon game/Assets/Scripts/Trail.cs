@@ -7,11 +7,20 @@ public class Trail : MonoBehaviour
       
     public Animator animator;
 
-    public void Counter(int pick)
+
+    public void Start()
     {
-        Debug.Log("score = " + pick);
+        animator = GetComponent<Animator>();
     }
 
-    
+    public void Counter(int pick)
+    {        
+        animator.SetInteger("PickA", pick);
+    }
+
+
+
+
+
     //switch statement for animation here
 }

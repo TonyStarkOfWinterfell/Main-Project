@@ -11,7 +11,7 @@ public class Player_Health : MonoBehaviour
           
     }
 
-    // Update is called once per frame
+    
     void Update()
     {
         if (gameObject.transform.position.y < -7)
@@ -20,13 +20,13 @@ public class Player_Health : MonoBehaviour
         }
     }
 
-    void OnTriggerEnter2D(Collider2D trig)
-    {
-        if (trig.gameObject.tag == "Enemy")
-        {            
-            Die();
-        }
-    }
+    //void OnTriggerEnter2D(Collider2D trig)
+    //{
+    //    if (trig.gameObject.tag == "Enemy")
+    //    {            
+    //        Die();
+    //    }
+    //}
 
 
 

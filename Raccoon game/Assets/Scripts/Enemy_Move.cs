@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Enemy_Move : MonoBehaviour
 {
@@ -10,11 +11,16 @@ public class Enemy_Move : MonoBehaviour
     public bool FacingRight = true;
 
     public float CurrentXPos;
+    public AudioSource Dead;
+
+
 
     private void Start()
     {
         CurrentXPos = gameObject.transform.position.x;
     }
+
+
 
 
     void Update()
@@ -37,13 +43,47 @@ public class Enemy_Move : MonoBehaviour
             CurrentXPos = gameObject.transform.position.x;
         }
 
-
         if (gameObject.transform.position.x < CurrentXPos)
         {            
             FlipPlayer();
             CurrentXPos = gameObject.transform.position.x;
         }
     }
+
+
+
+
+    void OnTriggerEnter2D(Collider2D trig)
+    {
+        if (trig.gameObject.tag == "Player")
+        {
+            Die();
+        }
+    }
+
+
+
+    void Die()
+    {
+        StartCoroutine(Test());        
+    }
+
+    IEnumerator Test()
+    {
+        Destroy(GameObject.FindGameObjectWithTag("Player"));
+        Dead.Play();
+        yield return new WaitForSeconds(2);
+        SceneManager.LoadScene("TitleScreen");
+    }
+
+
+
+
+
+
+
+
+
 
     void FlipPlayer()
     {
