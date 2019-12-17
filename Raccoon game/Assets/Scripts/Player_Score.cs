@@ -25,10 +25,13 @@ public class Player_Score : MonoBehaviour
     public string ftag;
     public GameObject[] go;
 
+    public Trail Trail;
+
 
     private void Awake()
     {        
-        offscreen = FoodTrail.transform.position;        
+        offscreen = FoodTrail.transform.position;
+        Trail = GameObject.FindObjectOfType<Trail>();
     }
 
 
@@ -37,10 +40,11 @@ public class Player_Score : MonoBehaviour
         characterPos = character.transform.position;
         timeLeft -= Time.deltaTime;
         playerScoreUI.gameObject.GetComponent<Text>().text = ("Score: " + playerScore);
+        Trail.Counter(Pick);
 
 
 
-        if(Pick == 1 && FD == 0)
+        if (Pick == 1 && FD == 0)
         {
             FoodTrail.transform.position = characterPos;
             FD = 1;
@@ -50,10 +54,26 @@ public class Player_Score : MonoBehaviour
             FoodTrail.transform.position = offscreen;
         }
 
-        if(FoodTrail.transform.position.x < character.transform.position.x - 3)
+
+
+        if(FoodTrail.transform.position.x < character.transform.position.x - 0.5f)
         {
-            FoodTrail.transform.position =  new Vector3( character.transform.position.x - 3, FoodTrail.transform.position.y, FoodTrail.transform.position.z);
+            FoodTrail.transform.position =  new Vector3( character.transform.position.x - 0.5f, FoodTrail.transform.position.y, FoodTrail.transform.position.z);
         }
+        else if (FoodTrail.transform.position.x > character.transform.position.x + 0.5f)
+        {
+            FoodTrail.transform.position = new Vector3(character.transform.position.x + 0.5f, FoodTrail.transform.position.y, FoodTrail.transform.position.z);
+        }
+
+
+
+
+
+        if (FoodTrail.transform.position.y != character.transform.position.y && FD == 1)
+        {
+            FoodTrail.transform.position = Vector2.MoveTowards(FoodTrail.transform.position, character.transform.position, Time.deltaTime * 4);
+        }
+
 
 
 

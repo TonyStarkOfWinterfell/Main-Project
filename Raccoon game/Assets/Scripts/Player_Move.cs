@@ -13,11 +13,14 @@ public class Player_Move : MonoBehaviour
     public bool IsGrounded;
     public Animator animator;
 
+    
 
-   
+
+
+
     void Update()
     {
-        PlayerMove();
+        PlayerMove();        
         animator.SetFloat("Speed", Mathf.Abs(moveX));
     }
 
