@@ -2286,7 +2286,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.017232776, y: -0.29380438}
+  m_Offset: {x: -0.017232776, y: 0.24646342}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -2297,7 +2297,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.16321489, y: 0.43963712}
+  m_Size: {x: 0.16321489, y: 1.5201726}
   m_EdgeRadius: 0
 --- !u!212 &532148628
 SpriteRenderer:
@@ -2927,7 +2927,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.017232776, y: -0.29380438}
+  m_Offset: {x: -0.017232776, y: 0.24646342}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -2938,7 +2938,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.16321489, y: 0.43963712}
+  m_Size: {x: 0.16321489, y: 1.5201726}
   m_EdgeRadius: 0
 --- !u!212 &628985272
 SpriteRenderer:
@@ -4801,7 +4801,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.017232776, y: -0.29380438}
+  m_Offset: {x: -0.017232776, y: 0.24646342}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -4812,7 +4812,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.16321489, y: 0.43963712}
+  m_Size: {x: 0.16321489, y: 1.5201726}
   m_EdgeRadius: 0
 --- !u!212 &1049115818
 SpriteRenderer:
@@ -6287,8 +6287,6 @@ MonoBehaviour:
   FacingRight: 1
   CurrentXPos: 0
   Dead: {fileID: 1667670245}
-  transition: {fileID: 547765963}
-  scenename: TitleScreen
 --- !u!50 &1216024025
 Rigidbody2D:
   serializedVersion: 4
@@ -9123,8 +9121,6 @@ MonoBehaviour:
   FacingRight: 1
   CurrentXPos: 0
   Dead: {fileID: 1667670245}
-  transition: {fileID: 547765963}
-  scenename: TitleScreen
 --- !u!50 &1667670243
 Rigidbody2D:
   serializedVersion: 4
@@ -10741,8 +10737,6 @@ MonoBehaviour:
   FacingRight: 1
   CurrentXPos: 0
   Dead: {fileID: 1667670245}
-  transition: {fileID: 547765963}
-  scenename: TitleScreen
 --- !u!50 &1915352995
 Rigidbody2D:
   serializedVersion: 4
@@ -11837,8 +11831,6 @@ MonoBehaviour:
   FacingRight: 1
   CurrentXPos: 0
   Dead: {fileID: 1667670245}
-  transition: {fileID: 547765963}
-  scenename: TitleScreen
 --- !u!50 &2075195533
 Rigidbody2D:
   serializedVersion: 4
@@ -12232,7 +12224,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.017232776, y: -0.29380438}
+  m_Offset: {x: -0.017232776, y: 0.24646342}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -12243,7 +12235,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.16321489, y: 0.43963712}
+  m_Size: {x: 0.16321489, y: 1.5201726}
   m_EdgeRadius: 0
 --- !u!212 &2127138894
 SpriteRenderer:
