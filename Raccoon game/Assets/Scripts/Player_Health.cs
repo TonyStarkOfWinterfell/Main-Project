@@ -19,16 +19,7 @@ public class Player_Health : MonoBehaviour
             Die();
         }
     }
-
-    //void OnTriggerEnter2D(Collider2D trig)
-    //{
-    //    if (trig.gameObject.tag == "Enemy")
-    //    {            
-    //        Die();
-    //    }
-    //}
-
-
+       
 
     void Die()
     {
